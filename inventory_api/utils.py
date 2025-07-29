@@ -7,13 +7,10 @@ logger = logging.getLogger(__name__)
 
 
 def custom_exception_handler(exc, context):
-    # Llama al manejador de excepciones predeterminado de DRF primero
     response = exception_handler(exc, context)
 
-    # Si hay una respuesta de error de DRF, personalízala
     if response is not None:
         if response.status_code == status.HTTP_400_BAD_REQUEST:
-            # Para errores de validación, puedes querer un formato específico
             response.data = {
                 'error': 'Error de validación',
                 'detail': response.data
@@ -28,10 +25,8 @@ def custom_exception_handler(exc, context):
                 'error': 'Error interno del servidor',
                 'detail': 'Ocurrió un error inesperado en el servidor.'
             }
-        
         logger.error(f"Error en la API: {response.status_code} - {response.data}", exc_info=True)
     else:
-        # Si no es un error de DRF (ej. error de Python no manejado)
         logger.error(f"Error inesperado: {exc}", exc_info=True)
         response = Response(
             {'error': 'Error interno del servidor', 'detail': 'Ocurrió un error inesperado.'},
