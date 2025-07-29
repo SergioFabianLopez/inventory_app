@@ -74,3 +74,8 @@ Accede a Swagger UI en:
 ```
 http://127.0.0.1:8000/api/docs/
 ```
+
+## Correr Test
+```
+python manage.py test inventory_api
+```

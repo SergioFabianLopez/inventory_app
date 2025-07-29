@@ -1,2 +1,48 @@
-venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
 db.sqlite3
+media/
+staticfiles/
+
+# Ignore envs
+venv/
+.env
+.env.*
+
+# VSCode settings
+.vscode/
+
+# PyCharm
+.idea/
+
+# MySQL dumps or other local dbs
+*.sql
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations (optional, if you want to ignore them)
+# **/migrations/
+# !**/migrations/__init__.py
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Test cache
+.cache/
+
+# pipenv
+Pipfile.lock
+
+# pytest
+.pytest_cache/
